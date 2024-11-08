@@ -9,7 +9,7 @@
 body{
     height: 100vh;
     font-family:"outfit", sans-serif;
-    background-color: aqua;
+    
 }
 
 .container {
@@ -79,9 +79,22 @@ main{
     justify-content: center;
     flex-direction: column;
     flex-grow: 1;
-    color: beige;
+    color: rgb(252, 252, 252);
 }
 
-main h1{
-    font-size: 60px;
+
+main{
+    display: flex;
+    justify-content: end;
+    padding-bottom: 150px;
 }
+
+
+main h1{
+    font-size: 90px;
+}
+
+main p{
+    font-size: 20px;
+}
+
