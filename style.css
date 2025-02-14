@@ -1,15 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@100..900&display=swap');
 
-
 * {
     margin: 0;
-   padding: 0;
+    padding: 0;
 }
 
-body{
+body {
     height: 100vh;
-    font-family:"outfit", sans-serif;
-    
+    font-family: "outfit", sans-serif;
+    background-color: #363636;
 }
 
 .container {
@@ -19,17 +18,17 @@ body{
     display: flex;
     flex-direction: column;
     height: 100%;
-
+    
 }
 
-header{
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
 }
 
-.titulo{
+.titulo {
     font-size: 20px;
     font-weight: bold;
     display: flex;
@@ -37,26 +36,24 @@ header{
     color: aliceblue;
 }
 
-nav{
+nav {
     font-weight: bold;
-    padding-right: 10px ;
+    padding-right: 10px;
     display: flex;
-
 }
 
-nav a{
+nav a {
     text-decoration: none;
     color: aliceblue;
     height: 50px;
     width: 145px;
-
     justify-content: center;
     align-items: center;
     display: flex;
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-nav a:hover{
+nav a:hover {
     background-color: rgb(201, 2, 2);
     height: 50px;
     width: 145px;
@@ -65,36 +62,108 @@ nav a:hover{
     transform: scale(1.01);
 }
 
-ul{
+ul {
     font-weight: bold;
     display: flex;
     padding-left: 10px;
     gap: 20px;
 }
 
-
-main{
+main {
     display: flex;
     padding-left: 29px;
     justify-content: center;
     flex-direction: column;
     flex-grow: 1;
     color: rgb(252, 252, 252);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
 }
 
-
-main{
-    display: flex;
-    justify-content: end;
-    padding-bottom: 150px;
-}
-
-
-main h1{
+main h1 {
     font-size: 90px;
 }
 
-main p{
+main p {
     font-size: 20px;
 }
 
+.cartoes-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #363636;
+    flex-wrap: wrap; /* Permite que os cartões se ajustem quando a tela diminuir */
+}
+
+.cartao {
+    background-color: #000000;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+    color: aliceblue;
+    padding: 20px;
+    width: 20%;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    margin: 10px;
+    background-size: cover; /* Faz com que a imagem ocupe todo o fundo do cartão */
+    background-position: center; /* Centraliza a imagem de fundo */
+    max-height: 700px;
+    height: 700px; /* Altura do cartão, ajustada conforme necessário */
+    position: relative; /* Necessário para posicionar o texto sobre a imagem */
+    overflow: hidden; /* Garante que o conteúdo não ultrapasse os limites do cartão */
+    cursor: pointer; /* Altera o cursor para indicar que é clicável */
+    transition: all 0.3s ease; /* Transição suave para o efeito de hover */
+}
+
+/* Camada de escurecimento sobre a imagem */
+.cartao::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Cor preta com opacidade de 40% */
+    z-index: 1; /* Coloca o overlay sobre a imagem */
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Transição suave para o overlay */
+}
+
+/* Efeito ao passar o mouse sobre o cartão */
+.cartao:hover::before {
+    opacity: 1; /* Torna o overlay visível ao passar o mouse */
+}
+
+/* Texto que aparece ao passar o mouse */
+.cartao:hover::after {
+    content: "Red Bull RB19"; /* Texto que aparece no hover */
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;  /* Coloca o texto no centro verticalmente */
+    left: 50%;  /* Coloca o texto no centro horizontalmente */
+    transform: translate(-50%, -50%);  /* Centraliza perfeitamente */
+    z-index: 2; /* Coloca o texto acima do overlay */
+    text-align: center; /* Alinha o texto ao centro */
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.5s ease; /* Transição suave para o texto */
+}
+
+.cartao:hover::after {
+    opacity: 1;  
+}
+
+
+@media (max-width: 768px) {
+    .cartao {
+        width: 45%;  
+    }
+}
+
+@media (max-width: 480px) {
+    .cartao {
+        width: 90%;  
+    }
+}
