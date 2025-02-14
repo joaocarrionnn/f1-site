@@ -93,7 +93,7 @@ main p {
     margin-top: 20px;
     padding: 20px;
     background-color: #363636;
-    flex-wrap: wrap; /* Permite que os cartões se ajustem quando a tela diminuir */
+    flex-wrap: wrap; 
 }
 
 .cartao {
@@ -106,17 +106,17 @@ main p {
     text-decoration: none;
     border-radius: 10px;
     margin: 10px;
-    background-size: cover; /* Faz com que a imagem ocupe todo o fundo do cartão */
-    background-position: center; /* Centraliza a imagem de fundo */
+    background-size: cover; 
+    background-position: center; 
     max-height: 700px;
-    height: 700px; /* Altura do cartão, ajustada conforme necessário */
-    position: relative; /* Necessário para posicionar o texto sobre a imagem */
-    overflow: hidden; /* Garante que o conteúdo não ultrapasse os limites do cartão */
-    cursor: pointer; /* Altera o cursor para indicar que é clicável */
-    transition: all 0.3s ease; /* Transição suave para o efeito de hover */
+    height: 700px; 
+    position: relative; 
+    overflow: hidden; 
+    cursor: pointer; 
+    transition: all 0.3s ease; 
 }
 
-/* Camada de escurecimento sobre a imagem */
+
 .cartao::before {
     content: '';
     position: absolute;
@@ -124,32 +124,40 @@ main p {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4); /* Cor preta com opacidade de 40% */
-    z-index: 1; /* Coloca o overlay sobre a imagem */
+    background-color: rgba(0, 0, 0, 0.4); 
+    z-index: 1; 
     opacity: 0;
-    transition: opacity 0.3s ease; /* Transição suave para o overlay */
+    transition: opacity 0.3s ease;
 }
 
-/* Efeito ao passar o mouse sobre o cartão */
+
 .cartao:hover::before {
-    opacity: 1; /* Torna o overlay visível ao passar o mouse */
+    opacity: 1;
 }
 
-/* Texto que aparece ao passar o mouse */
+
 .cartao:hover::after {
-    content: "Red Bull RB19"; /* Texto que aparece no hover */
+    content: "Red Bull RB19"; 
     color: white;
     font-size: 1.8rem;
     font-weight: bold;
     position: absolute;
-    top: 50%;  /* Coloca o texto no centro verticalmente */
-    left: 50%;  /* Coloca o texto no centro horizontalmente */
-    transform: translate(-50%, -50%);  /* Centraliza perfeitamente */
-    z-index: 2; /* Coloca o texto acima do overlay */
-    text-align: center; /* Alinha o texto ao centro */
-    opacity: 0; /* Inicialmente invisível */
-    transition: opacity 0.5s ease; /* Transição suave para o texto */
+    top: 50%;  
+    left: 50%;  
+    transform: translate(-50%, -50%);  
+    z-index: 2;
+    text-align: center; 
+    opacity: 0; 
+    transition: opacity 0.5s ease; 
 }
+
+
+
+.cartao:hover::after {
+    opacity: 1;  
+}
+
+
 
 .cartao:hover::after {
     opacity: 1;  
